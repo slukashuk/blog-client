@@ -1,0 +1,27 @@
+[
+	{
+		"id": 2,
+		"title": "This is a title 2",
+		"text": "This is my second blog post",
+		"author": "admin",
+		"timestamp": 12345778,
+		"comments": [
+			{
+				"id": 1,
+				"summary": "Looks good",
+				"text": "This is a comment",
+				"author": "hello",
+				"postId": 1,
+				"timestamp": 12345678
+			}
+		]
+	},
+	{
+		"id": 1,
+		"title": "This is a title",
+		"text": "This is my first blog post",
+		"author": "admin",
+		"timestamp": 12345678,
+		"comments": []
+	}
+]
