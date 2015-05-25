@@ -1,5 +1,23 @@
-{{post.title}}
-<br/>
-{{post.text}}
-<br/>
-{{post.author}}
+<div>{{post.title}}</div>
+<div>{{post.author}}</div>
+<div>{{post.text}}</div>
+
+
+Comments:
+<ul>
+	<li ng-repeat="comment in comments">
+		<div>
+			<div>Summary : {{comment.summary}}</div>
+			<div>Author : {{comment.author}}</div>
+			<div>Text : {{comment.text}}</div>
+		</div>
+	</li>
+</ul>
+
+<input type="text" id="Author" ng-model="newComment.author" placeholder="Author"/></input>
+<br>
+<input type="text" id="Summary" ng-model="newComment.summary" placeholder="Summary"/></input>
+<br>
+<textarea id="Text" ng-model="newComment.text" placeholder="Type your post here"/></textarea>
+<button id="AddComment" ng-click="addComment(newComment)">Add Comment</button>
+

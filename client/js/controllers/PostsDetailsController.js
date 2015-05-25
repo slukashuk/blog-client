@@ -1,33 +1,21 @@
-app.controller('PostPageController', ['$scope','BlogService', '$routeParams',
-	function($scope, BlogService,$routeParams) {
-
-		var posts;
-		BlogService.getPosts().then(function(posts_list) {
-
-			posts = posts_list.data; //[{},{}]
-
-			// $scope.post = posts.filter(function(post_object){
-			// 	 return post_object.id == $routeParams.post_id 
-			// })[0]
-
-			var filteredPosts = posts.filter(function(post_object){
-				return post_object.id == $routeParams.post_id 
-			})
-			
-			$scope.post = filteredPosts[0];
-				
-			//------------------------------------------------
-			// posts.forEach(function(post_object){
-			// 	if(post_object.id == $routeParams.post_id){
-			// 		$scope.post = post_object
-			// 	}
-			// })	
-
-			// for (var i = 0; i < posts.length; i++) {
-			// 	if(posts[i].id == $routeParams.post_id){
-			// 		$scope.post = posts[i]
-			// 	}
-			// };		
-
+app.controller('PostPageController', ['$scope', '$routeParams', 'BlogService',
+	function($scope, $routeParams, BlogService) {
+		BlogService.getPost($routeParams.post_id).then(function(response) {
+			$scope.post = response.data;	
 		});
-}]);
+
+		var refreshComments = function(){
+			BlogService.getComments($routeParams.post_id).then(function(response) {
+				$scope.comments = response.data;	
+			});
+		};
+
+		refreshComments();
+
+		$scope.addComment = function(comment) {
+			BlogService
+				.addComment($routeParams.post_id, comment)
+				.then(refreshComments);
+		};
+	}
+]);

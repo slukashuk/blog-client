@@ -3,3 +3,10 @@
 		<a href='#/posts/{{post.id}}'>{{post.title}}</a>
 	</li>
 </ul>
+<br>
+<input type="text" id="Author" ng-model="newPost.author" placeholder="Author"/></input>
+<br>
+<input type="text" id="Title" ng-model="newPost.title" placeholder="Title"/></input>
+<br>
+<textarea id="Text" ng-model="newPost.text" placeholder="Type your post here"/></textarea>
+<button id="AddPost" ng-click="addPost(newPost)">Add</button>

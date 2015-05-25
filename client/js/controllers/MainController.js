@@ -7,9 +7,9 @@ app.controller('MainController', function($scope, BlogService) {
 
 	refreshPosts();
 
-	$scope.addPost = function() {
+	$scope.addPost = function(post) {
 		BlogService
-			.addPost($scope.newPost)
+			.addPost(post)
 			.then(refreshPosts);
 	};
 });
