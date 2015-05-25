@@ -5,7 +5,7 @@ app.config(function($routeProvider) {
 		.when('/', {
 			templateUrl: 'views/post-list.html'
 		})
-		.when('/posts/:id', {
+		.when('/posts/:post_id', {
 			controller: 'PostPageController',
 			templateUrl: 'views/post-details.html'
 		})
