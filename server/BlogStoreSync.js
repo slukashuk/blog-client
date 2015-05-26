@@ -26,7 +26,7 @@ _p._init = function(posts) {
 _p.addPost = function(post) {
 	post.id = ++this._maxPostId;
 	post.comments = [];
-	this._posts.push(post);
+	this._posts.unshift(post);
 	return post;
 };
 
