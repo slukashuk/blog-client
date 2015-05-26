@@ -22,6 +22,14 @@ app.service('BlogService', function($http) {
 		});
     };
 
+    this.savePost = function (post) {
+	    return $http({
+			url: 'http://localhost:3003/api/posts/' + post.id,
+			method: 'PUT',
+			data: post
+		});
+    };
+
     this.addComment = function (postId, comment){
 	    return $http({
 			url: 'http://localhost:3003/api/posts/' + postId + '/comments',

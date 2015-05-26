@@ -1,8 +1,14 @@
-<div>{{post.title}}</div>
-<div>{{post.author}}</div>
-<div>{{post.text}}</div>
+<input type="text" id="Title" ng-model="post.title" ng-disabled="editingDisabled" placeholder="Title"/></input>
+<br>
+<input type="text" id="Author" ng-model="post.author" ng-disabled="editingDisabled" placeholder="Author"/></input>
+<br>
+<textarea id="PostText" ng-model="post.text" ng-disabled="editingDisabled" placeholder="Text"/></textarea>
+<br>
+<button id="EditPost" ng-show="editingDisabled" ng-click="editingDisabled = false">Edit Post</button>
+<button id="Cancel" ng-hide="editingDisabled" ng-click="cancelEditing()">Cancel</button>
+<button id="Save" ng-hide="editingDisabled" ng-click="savePost()">Save</button>
 
-
+<br>
 Comments:
 <ul>
 	<li ng-repeat="comment in comments">
@@ -14,10 +20,10 @@ Comments:
 	</li>
 </ul>
 
-<input type="text" id="Author" ng-model="newComment.author" placeholder="Author"/></input>
+<input type="text" id="CommentAuthor" ng-model="newComment.author" placeholder="Author"/></input>
 <br>
-<input type="text" id="Summary" ng-model="newComment.summary" placeholder="Summary"/></input>
+<input type="text" id="CommentSummary" ng-model="newComment.summary" placeholder="Summary"/></input>
 <br>
-<textarea id="Text" ng-model="newComment.text" placeholder="Type your post here"/></textarea>
+<textarea id="CommentText" ng-model="newComment.text" placeholder="Type your post here"/></textarea>
 <button id="AddComment" ng-click="addComment(newComment)">Add Comment</button>
 

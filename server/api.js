@@ -71,6 +71,24 @@ function addPost(req, res, store) {
 	});
 }
 
+function updatePost(req, res, store) {
+	var postId = +req.params.id;
+	store.updatePost(postId, req.body, function(err, post) {
+		if (err) {
+			res.status(400);
+			res.json(err);
+			return;
+		} 
+
+		if (post === null) {
+			sendError(res, 404, 'Could not find post id ' + postId);
+			return;
+		}
+
+		res.json(post);
+	});
+}
+
 function getPost(req, res, store) {
 	var id = +req.params.id;
 	store.getPost(id, function(err, post) {
