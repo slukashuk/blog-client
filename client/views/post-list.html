@@ -5,12 +5,11 @@
 	</li>
 </ul>
 
-<button id="OlderPosts" ng-click="showOldPosts()">Older posts</button>
-<br>
+<button id="OlderPosts" ng-click="showOldPosts()">Older posts</button><br/>
+
 <br>
 <input type="text" id="Author" ng-model="newPost.author" placeholder="Author"/></input>
+<input type="text" id="Title" ng-model="newPost.title" placeholder="Title"/></input><br/>
 <br>
-<input type="text" id="Title" ng-model="newPost.title" placeholder="Title"/></input>
-<br>
-<textarea id="Text" ng-model="newPost.text" placeholder="Type your post here"/></textarea>
+<textarea id="Text" ng-model="newPost.text" placeholder="Type your post here"/></textarea><br/>
 <button id="AddPost" ng-click="addPost(newPost)">Add</button>
