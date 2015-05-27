@@ -22,6 +22,13 @@ app.service('BlogService', function($http) {
 		});
     };
 
+	this.deletePost = function(postId) {
+		return $http({
+			url: 'http://localhost:3003/api/posts/' + postId,
+			method: 'delete'
+		});
+    };
+    
     this.savePost = function (post) {
 	    return $http({
 			url: 'http://localhost:3003/api/posts/' + post.id,

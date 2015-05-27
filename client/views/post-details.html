@@ -27,3 +27,16 @@ Comments:
 <textarea id="CommentText" ng-model="newComment.text" placeholder="Type your post here"/></textarea>
 <button id="AddComment" ng-click="addComment(newComment)">Add Comment</button>
 
+<div ng-show="deleteAttempt"> 
+        <div class="modal-header">
+            <h3 class="modal-title">Warning</h3>
+        </div>
+        <div class="modal-body">
+            You are about to delete a post?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="delete()">Delete</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+     </div>
+

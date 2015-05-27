@@ -16,7 +16,7 @@
 
     </head>
 
-  <body ng-app='blog' ng-controller="MainController">
+  <body ng-app='blog' ng-controller="MainController" class="container">
 
   	<ng-include src="data/posts.json"></ng-include> 
   	<ng-include src="data/comments.json"></ng-include> 
@@ -87,8 +87,10 @@
 
 
     
-    
+     <script src="vnd/jquery/dist/jquery.js"></script>
      <script src="vnd/angular/angular.js"></script>
+     <script src="vnd/bootstrap/dist/js/bootstrap.js"></script>
+     <script src="vnd/angular-modal-service/dst/angular-modal-service.js"></script>  
      <script src="vnd/angular-route/angular-route.js"></script>
 
      
@@ -97,6 +99,7 @@
      <script src="js/controllers/PostPageController.js"></script>
      
      <script src="js/services/BlogService.js"></script>
+     
      
    
     
