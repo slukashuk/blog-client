@@ -28,7 +28,14 @@ app.service('BlogService', function($http) {
 			method: 'delete'
 		});
     };
-    
+
+    this.deleteComment = function(postid, commentid) {
+		return $http({
+			url: 'http://localhost:3003/api/posts/' + postid + '/comments/' + commentid,
+			method: 'delete'
+		});
+    };
+
     this.savePost = function (post) {
 	    return $http({
 			url: 'http://localhost:3003/api/posts/' + post.id,

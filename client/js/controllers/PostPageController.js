@@ -1,5 +1,5 @@
-app.controller('PostPageController', ['$scope', '$routeParams', 'BlogService',
-	function($scope, $routeParams, BlogService) {
+app.controller('PostPageController', ['$scope', '$routeParams', 'BlogService', 'ModalService',
+	function($scope, $routeParams, BlogService, ModalService) {
 		$scope.editingDisabled = true;
 		
 		var loadPost = function(){
@@ -29,6 +29,24 @@ app.controller('PostPageController', ['$scope', '$routeParams', 'BlogService',
 				.then(refreshComments);
 		};
 
+		$scope.deleteComment = function(commentId){
+		ModalService.showModal({
+			templateUrl: "views/confirmation-dialog.html",
+			controller: "ModalController"
+		}).then(function(modal) {
+			modal.element.modal();
+			modal.close.then(function(result) {
+				if(result !== 'Yes')
+					return;
+					
+				BlogService
+					.deleteComment($routeParams.post_id, commentId)
+					.then(refreshComments);
+
+			});
+		});
+	};
+
 		$scope.savePost = function(){
             BlogService
             	.savePost($scope.post)
@@ -38,3 +56,8 @@ app.controller('PostPageController', ['$scope', '$routeParams', 'BlogService',
 		};
 	}
 ]);
+app.controller('ModalController', function($scope, close) {
+	 $scope.close = function(result) {
+	 	close(result, 500); // close, but give 500ms for bootstrap to animate
+	 };
+});

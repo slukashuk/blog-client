@@ -8,11 +8,8 @@ app.controller('MainController', function($scope, ModalService, BlogService) {
 	loadPosts();
 
 	$scope.showOldPosts = function (){
-
 		BlogService.getPosts($scope.posts.length).then(function(payload) {
-			
 			$scope.posts = $scope.posts.concat(payload.data);
-			
 		});
 	};
 

@@ -12,11 +12,8 @@
 Comments:
 <ul>
 	<li ng-repeat="comment in comments">
-		<div>
-			<div>Summary : {{comment.summary}}</div>
-			<div>Author : {{comment.author}}</div>
-			<div>Text : {{comment.text}}</div>
-		</div>
+		{{comment.text}}
+		<div ng-click="deleteComment(comment.id)" class="glyphicon glyphicon-trash"></div>
 	</li>
 </ul>
 
