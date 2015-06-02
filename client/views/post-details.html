@@ -22,7 +22,7 @@ Comments:
 <input type="text" id="CommentSummary" ng-model="newComment.summary" placeholder="Summary"/></input><br/>
 <br/>
 <textarea id="CommentText" ng-model="newComment.text" placeholder="Type your comment"/></textarea><br/>
-<button id="AddComment" ng-click="addComment(newComment)">Add Comment</button>
+<button ng-disabled="!newComment.text || !newComment.text.length" id="AddComment" ng-click="addComment(newComment)">Add Comment</button>
 
 
 

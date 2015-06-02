@@ -182,6 +182,9 @@ function stripComments (post) {
 };
 
 function stripText (post) {
+	if(!post.text)
+		return post;
+
 	var moreTagIndex = post.text.indexOf('--more--');
 
 	if (moreTagIndex !== -1) {

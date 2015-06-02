@@ -25,5 +25,9 @@
     "bootstrap": "~3.3.4",
     "jquery": "~2.1.4",
     "angular-modal-service": "~0.6.6"
+  },
+  "devDependencies": {
+    "mocha": "~2.2.5",
+    "chai": "~2.3.0"
   }
 }
